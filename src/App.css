@@ -11,15 +11,8 @@
   font-weight: normal;
 }
 
-.progress-bar {
-  width: 50%;
-  padding-right: 10px;
-  scroll-padding-left: 10px;
-}
-
 .progress {
-  width: 50%;
-  padding-right: 10px;
+  width: 80%;
   scroll-padding-left: 10px;
 }
 
@@ -44,6 +37,7 @@
   top: 66px;
   width: 50%;
   margin-left: 25px;
+  font-size: small;
 }
 
 .upload {
@@ -60,6 +54,7 @@
   top: 66px;
   width: 100%;
   margin-left: 30px;
+  font-size: small;
 }
 
 .delete {

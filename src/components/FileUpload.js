@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { ProgressBar } from 'react-bootstrap';
-const BaseUrl = 'https://server-file-upload.herokuapp.com/';
-
+const BaseUrl = 'https://serverfileupload.herokuapp.com/';
 
 class FileUpload extends Component {
 
@@ -12,7 +11,7 @@ class FileUpload extends Component {
         this.state = {
             selectedFile: null,
             isFileSelected: false,
-            uploadPercentage: 10
+            uploadPercentage: 0
         }
     }
 
@@ -53,11 +52,9 @@ class FileUpload extends Component {
 
         var config = {
             onUploadProgress: function (progressEvent) {
-
                 const { loaded, total } = progressEvent;
                 let percent = Math.floor((loaded * 100) / total)
                 console.log(`${loaded}kb of ${total}kb | ${percent}%`);
-
                 console.log(this.uploadPercentage);
                 if (percent < 100) {
                     this.setState({ uploadPercentage: percent })
@@ -93,12 +90,13 @@ class FileUpload extends Component {
             <div className='fileUpload'>
                 <div>
                     <h2>Upload Files:</h2>
+                    <br></br>
                     <input type="file" id="fileControl" accept=".txt,.jpeg,.pdf,.json,.odt,.jpeg,.png,.jpg" name="file" onChange={this.changeHandler}></input>
                     {this.state.isFileSelected ? <button className="upload" onClick={() => this.uploadFile(this.state.selectedFile)}>Upload</button> : null}
                 </div>
                 <br></br>
                 <div>
-                    {uploadPercentage > 0 && <ProgressBar striped animated now={uploadPercentage} active label={`${uploadPercentage}%`} />}
+                    {uploadPercentage > 0 && <ProgressBar striped animated now={uploadPercentage} label={`${uploadPercentage}%`} />}
                 </div>
                 <br></br>
                 <div>

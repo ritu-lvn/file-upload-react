@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const BaseUrl = 'https://server-file-upload.herokuapp.com/';
+const BaseUrl = 'https://serverfileupload.herokuapp.com/';
 
 class FileList extends Component {
 
@@ -17,12 +17,12 @@ class FileList extends Component {
     //To fetch all uploaded files
     componentDidMount() {
         console.log("Did mount")
-        this.refreshFileList();
+       this.refreshFileList();
     }
 
     componentWillReceiveProps() {
         console.log("Will recieve prps")
-        this.refreshFileList();
+       this.refreshFileList();
     }
 
     //To fetch all uploaded files
