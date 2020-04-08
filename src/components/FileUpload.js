@@ -88,6 +88,7 @@ class FileUpload extends Component {
         const { uploadPercentage } = this.state;
         return (
             <div className='fileUpload'>
+                <br></br>
                 <div>
                     <h2>Upload Files:</h2>
                     <br></br>

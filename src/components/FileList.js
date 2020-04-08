@@ -3,7 +3,6 @@ import axios from 'axios';
 const BaseUrl = 'https://serverfileupload.herokuapp.com/';
 
 class FileList extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -17,12 +16,12 @@ class FileList extends Component {
     //To fetch all uploaded files
     componentDidMount() {
         console.log("Did mount")
-       this.refreshFileList();
+        this.refreshFileList();
     }
 
     componentWillReceiveProps() {
         console.log("Will recieve prps")
-       this.refreshFileList();
+        this.refreshFileList();
     }
 
     //To fetch all uploaded files
@@ -106,7 +105,7 @@ class FileList extends Component {
                     <td></td>
                     <td>{FileID}</td>
                     <td>{FileName}</td>
-                    <td>{(new Date(FileUploadedDate)).toString()}</td>
+                    <td>{((new Date(FileUploadedDate)).toString()).split(' ').slice(0, 5).join(' ')}</td>
                     <td>{FileSize}</td>
                     <td><button className="delete" onClick={() => this.deleteFile(FileID)}>Delete</button></td>
                 </tr>
@@ -119,6 +118,7 @@ class FileList extends Component {
         if (this.state.fileArr.length > 0) {
             return (
                 <div>
+                    <br></br>
                     <h2>Uploaded Files List:</h2>
                     <div className="search">
                         <input type="text" placeholder="Search file by id" onChange={this.searchHandler}></input>
@@ -130,7 +130,7 @@ class FileList extends Component {
                                     <th>Sl. No</th>
                                     <th>File Id</th>
                                     <th>File Name</th>
-                                    <th>Last Uploaded Date</th>
+                                    <th>Uploaded Date</th>
                                     <th>File Size (Bytes)</th>
                                     <th>Delete</th>
                                 </tr>
@@ -145,6 +145,7 @@ class FileList extends Component {
         } else {
             return (
                 <div>
+                    <br></br>
                     <h2>Uploaded Files List:</h2>
                     <p>No files uploaded</p>
                 </div>

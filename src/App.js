@@ -6,24 +6,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class App extends Component {
 
-  constructor(props){
-    super(props)
-  }
-  
   refreshFileList = () => {
     console.log("File uploaded succesfully");
-    this.setState({state:this.state});
+    this.setState({ state: this.state });
   }
 
-  
+
   render() {
     return (
-      <div className="App">
-        <h1 className='header'>File Uploading App</h1>
-        <h1 className='footer'>&copy; 2020 sasken.com</h1>
+      <div>
+        <div className="header">
+          <h1>File Uploading App</h1>
+          <h2>Version</h2>
+          <img src={require('./images/sasken.png')} />
+        </div>
+        <h1 className='footer'>&copy; 2020 Sasken Technologies Limited</h1>
         <hr className="dotted"></hr>
         <div className="fileUpload">
-          <FileUpload refresh = {this.refreshFileList}></FileUpload>
+          <FileUpload refresh={this.refreshFileList}></FileUpload>
         </div>
         <div className="fileList">
           <FileList></FileList>
